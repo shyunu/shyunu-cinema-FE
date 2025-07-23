@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "The Edge of Tomorrow",
+    "subTitle": "Live. Die. Repeat.",
+    "description": "A soldier fighting aliens gets to relive the same day over and over again, the day restarting every time he dies.",
+    "releaseDate": "2014-06-06",
+    "company": "Warner Bros.",
+    "genres": ["Action", "Sci-Fi"],
+    "runtime": 113,
+    "posterImgUrl": "https://upload.wikimedia.org/wikipedia/en/f/f9/Edge_of_Tomorrow_Poster.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Your Name",
+    "subTitle": "Who are you?",
+    "description": "Two teenagers share a profound, magical connection upon discovering they are swapping bodies.",
+    "releaseDate": "2016-08-26",
+    "company": "CoMix Wave Films",
+    "genres": ["Animation", "Fantasy", "Romance"],
+    "runtime": 106,
+    "posterImgUrl": "https://upload.wikimedia.org/wikipedia/en/0/0b/Your_Name_poster.png"
+  },
+  {
+    "id": 7,
+    "title": "Parasite",
+    "subTitle": "Act like you own the place",
+    "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "releaseDate": "2019-05-30",
+    "company": "CJ Entertainment",
+    "genres": ["Drama", "Thriller"],
+    "runtime": 132,
+    "posterImgUrl": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+  }
+]
