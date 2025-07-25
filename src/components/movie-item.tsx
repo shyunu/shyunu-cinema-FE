@@ -1,6 +1,7 @@
 import type { MovieData } from "@/types";
 import Link from "next/link";
 import style from "./movie-item.module.css";
+
 export default function MovieItem({
   id,
   title,
@@ -19,7 +20,9 @@ export default function MovieItem({
         <div className={style.title}>{title}</div>
         <div className={style.subTitle}>{subTitle}</div>
         <br />
-        <div className={style.author}>{/* {author} | {publisher} */}</div>
+        <div className={style.info}>
+          {genres} | {releaseDate} 개봉 | {runtime}분
+        </div>
       </div>
     </Link>
   );

@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 15px 0px;
+  padding: 15px;
 }
 
 .author {
   font-size: 14px;
+  margin-left: 3px;
 }
 
 .content {
@@ -20,6 +21,10 @@
   gap: 10px;
   color: gray;
   font-size: 14px;
+}
+
+.date {
+  margin-left: 3px;
 }
 
 .delete_btn {

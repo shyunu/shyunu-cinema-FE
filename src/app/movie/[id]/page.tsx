@@ -26,12 +26,14 @@ async function MovieDetail({ movieId }: { movieId: string }) {
       <div className={style.cover_img_container} style={{ backgroundImage: `url('${posterImgUrl}')` }}>
         <img src={posterImgUrl} />
       </div>
-      <div className={style.title}>{title}</div>
-      <div className={style.subTitle}>{subTitle}</div>
-      <div className={style.author}>
-        {genres} | {runtime}
+      <div className={style.info_container}>
+        <div className={style.title}>{title}</div>
+        <div className={style.subTitle}>{subTitle}</div>
+        <div className={style.author}>
+          {releaseDate} 개봉 | {runtime}분 | {genres}
+        </div>
+        <div className={style.description}>{description}</div>
       </div>
-      <div className={style.description}>{description}</div>
     </section>
   );
 }
