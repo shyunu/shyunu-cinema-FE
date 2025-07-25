@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/Pretendard-Medium.ttf") format("truetype");
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0px;
   padding: 0px;
   background-color: rgb(250, 250, 250);
+  font-family: "Pretendard", sans-serif;
 }
 
 a {

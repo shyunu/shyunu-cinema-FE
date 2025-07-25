@@ -28,7 +28,7 @@ export default function RootLayout({
       <body>
         <div className={style.container}>
           <header>
-            <Link href={"/"}>🎬 shyunu&apos;s Cinema</Link>
+            <Link href={"/"}>🎬 shyunu&apos;s cinema</Link>
           </header>
           <main>{children}</main>
           <Footer />

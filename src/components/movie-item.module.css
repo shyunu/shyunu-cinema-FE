@@ -14,12 +14,15 @@
 
 .title {
   font-weight: bold;
+  font-size: 16px;
 }
 
 .subTitle {
   word-break: keep-all;
+  font-size: 14px;
 }
 
-.author {
+.info {
   color: gray;
+  font-size: 12px;
 }
