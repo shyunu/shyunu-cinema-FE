@@ -10,7 +10,7 @@ export function generateStaticParams() {
 }
 
 async function MovieDetail({ movieId }: { movieId: string }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/${movieId}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/${movieId}`, { cache: "force-cache" });
   if (!response.ok) {
     if (response.status === 404) {
       notFound();
@@ -36,10 +36,10 @@ async function MovieDetail({ movieId }: { movieId: string }) {
   );
 }
 
-
-
 async function ReviewList({ movieId }: { movieId: string }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/movie/${movieId}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/movie/${movieId}`, {
+    next: { tags: [`review-${movieId}`] },
+  });
   if (!response.ok) {
     throw new Error(`Review fetch failed : ${response.statusText}`);
   }
