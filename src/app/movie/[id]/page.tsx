@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import style from "./page.module.css";
 import { createReviewAction } from "@/actions/create-review.action";
-import { ReviewData } from "@/types";
+import { MovieData, ReviewData } from "@/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
 import Image from "next/image";
@@ -78,6 +78,29 @@ async function ReviewList({ movieId }: { movieId: string }) {
       ))}
     </section>
   );
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/${id}`, {
+    cache: "force-cache",
+  });
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const movie: MovieData = await response.json();
+
+  return {
+    title: `${movie.title} - shyunu's cinema`,
+    description: `${movie.description}`,
+    openGraph: {
+      title: `${movie.title} - shyunu's cinema`,
+      description: `${movie.description}`,
+      images: [movie.posterImgUrl],
+    },
+  };
 }
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
