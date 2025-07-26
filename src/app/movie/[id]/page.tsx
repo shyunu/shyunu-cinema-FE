@@ -4,13 +4,17 @@ import { createReviewAction } from "@/actions/create-review.action";
 import { ReviewData } from "@/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
+import Image from "next/image";
 
 export function generateStaticParams() {
   return [{ id: "1" }, { id: "2" }, { id: "3" }];
 }
 
 async function MovieDetail({ movieId }: { movieId: string }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/${movieId}`, { cache: "force-cache" });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/${movieId}`,
+    { cache: "force-cache" }
+  );
   if (!response.ok) {
     if (response.status === 404) {
       notFound();
@@ -19,12 +23,29 @@ async function MovieDetail({ movieId }: { movieId: string }) {
   }
   const movie = await response.json();
 
-  const { title, subTitle, description, releaseDate, company, genres, runtime, posterImgUrl } = movie;
+  const {
+    title,
+    subTitle,
+    description,
+    releaseDate,
+    company,
+    genres,
+    runtime,
+    posterImgUrl,
+  } = movie;
 
   return (
     <section>
-      <div className={style.cover_img_container} style={{ backgroundImage: `url('${posterImgUrl}')` }}>
-        <img src={posterImgUrl} />
+      <div
+        className={style.cover_img_container}
+        style={{ backgroundImage: `url('${posterImgUrl}')` }}
+      >
+        <Image
+          src={posterImgUrl}
+          width={240}
+          height={300}
+          alt={`영화 ${title}의 표지 이미지`}
+        />
       </div>
       <div className={style.info_container}>
         <div className={style.title}>{title}</div>
@@ -39,9 +60,12 @@ async function MovieDetail({ movieId }: { movieId: string }) {
 }
 
 async function ReviewList({ movieId }: { movieId: string }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/movie/${movieId}`, {
-    next: { tags: [`review-${movieId}`] },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/movie/${movieId}`,
+    {
+      next: { tags: [`review-${movieId}`] },
+    }
+  );
   if (!response.ok) {
     throw new Error(`Review fetch failed : ${response.statusText}`);
   }

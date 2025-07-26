@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
+  images: {
+    domains: ["search.pstatic.net"],
+    formats: ["image/webp"],
+  },
 };
 
 export default nextConfig;
