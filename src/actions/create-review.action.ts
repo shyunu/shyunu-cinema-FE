@@ -2,13 +2,16 @@
 
 import { revalidatePath, revalidateTag } from "next/cache";
 
-export async function createReviewAction(formData: FormData) {
+export async function createReviewAction(_: any, formData: FormData) {
   const movieId = formData.get("movieId")?.toString();
   const content = formData.get("content")?.toString();
   const author = formData.get("author")?.toString();
 
   if (!movieId || !content || !author) {
-    return;
+    return {
+      status: false,
+      error: "리뷰내용과 작성자를 입력해주세요",
+    };
   }
 
   try {
@@ -16,10 +19,18 @@ export async function createReviewAction(formData: FormData) {
       method: "POST",
       body: JSON.stringify({ movieId, content, author }),
     });
-    console.log(response.status);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
     revalidateTag(`review-${movieId}`);
+    return {
+      status: true,
+      error: "",
+    };
   } catch (err) {
-    console.error(err);
-    return;
+    return {
+      status: false,
+      error: `리뷰 저장에 실패했습니다 : ${err}`,
+    };
   }
 }
