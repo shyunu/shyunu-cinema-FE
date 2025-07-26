@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import style from "./serachbar.module.css";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export default function Searchbar() {
   const router = useRouter();
@@ -33,7 +34,15 @@ export default function Searchbar() {
 
   return (
     <div className={style.container}>
-      <input value={search} onChange={onChangeSearch} onKeyDown={onKeyDown} />
+      <TextField
+        id="standard-basic"
+        label="Standard"
+        variant="standard"
+        value={search}
+        onChange={onChangeSearch}
+        onKeyDown={onKeyDown}
+        className={style.textField}
+      />
       <Button variant="contained" onClick={onSubmit}>
         검 색
       </Button>
