@@ -15,8 +15,8 @@ async function Footer() {
   const movieCount = movies.length;
   return (
     <footer>
+      <div>{movieCount}개의 영화가 등록되어 있습니다</div>
       <div>제작 @shyunu</div>
-      <div>{movieCount}개의 영화가 등록되어 있습니다.</div>
     </footer>
   );
 }

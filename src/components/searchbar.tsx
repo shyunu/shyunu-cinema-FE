@@ -36,7 +36,6 @@ export default function Searchbar() {
     <div className={style.container}>
       <TextField
         id="standard-basic"
-        label="Standard"
         variant="standard"
         value={search}
         onChange={onChangeSearch}

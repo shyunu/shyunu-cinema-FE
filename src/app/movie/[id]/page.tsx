@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import style from "./page.module.css";
-import { createReviewAction } from "@/actions/create-review.action";
 import { MovieData, ReviewData } from "@/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
