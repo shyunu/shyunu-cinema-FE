@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  justify-content: space-around;
   gap: 15px;
   margin-bottom: 20px;
 }
@@ -11,7 +12,6 @@
 .textField input {
   padding: 15px;
   border-radius: 5px;
-  /* border: 1px solid rgb(220, 220, 220); */
   border: none;
   outline: none;
   box-shadow: 0 2px 4px rgb(220, 220, 220);
@@ -19,7 +19,6 @@
 
 .container > button {
   width: 80px;
-  height: 100%;
   border-radius: 5px;
   border: none;
   background-color: #a4161a;
