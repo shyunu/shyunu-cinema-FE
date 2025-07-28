@@ -31,7 +31,8 @@
 ## 🛠️ 기술 스택
 
 - **Framework:** Next.js (App Router 기반)  
-- **Language:** JavaScript, TypeScript 
+- **Language:** JavaScript, TypeScript
+- **Backend:** Open API 활용 (https://github.com/shyunu/onebite-cinema-api)
 - **Styling:** CSS Modules (`.module.css`)  
 - **Deployment:** Vercel
 
