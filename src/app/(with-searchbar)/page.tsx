@@ -1,49 +1,12 @@
-import MovieItem from "@/components/movie-item";
 import style from "./page.module.css";
-import { MovieData } from "@/types";
-import { delay } from "@/util/delay";
 import { Suspense } from "react";
-import MovieItemSkeleton from "@/components/skeleton/movie-item-skeleton";
 import MovieListSkeleton from "@/components/skeleton/movie-list-skeleton";
 import { Metadata } from "next";
-
-async function AllMovies() {
-  await delay(1500);
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie`, {
-    cache: "force-cache",
-  });
-  if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
-  }
-  const allMovies: MovieData[] = await response.json();
-
-  return (
-    <div>
-      {allMovies.map((movie) => (
-        <MovieItem key={movie.id} {...movie} />
-      ))}
-    </div>
-  );
-}
-
-async function RecoMovies() {
-  await delay(3000);
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/random`, {
-    next: { revalidate: 3 },
-  });
-  if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
-  }
-  const recoMovies: MovieData[] = await response.json();
-
-  return (
-    <div>
-      {recoMovies.map((movie) => (
-        <MovieItem key={movie.id} {...movie} />
-      ))}
-    </div>
-  );
-}
+import AllMovies from "@/components/home/AllMovies";
+import RecoMovies from "@/components/home/RecoMovies";
+import { RiMovieLine } from "react-icons/ri";
+import { FaRegStar } from "react-icons/fa6";
+import { LuThumbsUp } from "react-icons/lu";
 
 export const dynamic = "force-dynamic";
 
@@ -61,16 +24,45 @@ export default function Home() {
   return (
     <div className={style.container}>
       <section>
-        <h3>지금 추천하는 영화</h3>
+        <h3>추천 영화</h3>
         <Suspense fallback={<MovieListSkeleton count={3} />}>
           <RecoMovies />
         </Suspense>
       </section>
       <section>
-        <h3>등록된 모든 영화</h3>
+        <h3>모든 영화</h3>
         <Suspense fallback={<MovieListSkeleton count={10} />}>
           <AllMovies />
         </Suspense>
+      </section>
+      <section>
+        <div className={style.text}>
+          <h3>shyunu&apos;s cinema 특징</h3>
+          <h5>영화 애호가들을 위한 완벽한 플랫폼</h5>
+        </div>
+        <div className={style.feat_wrap}>
+          <div className={style.feat_box}>
+            <div className={`${style.icon} ${style.iconBlue}`}>
+              <RiMovieLine />
+            </div>
+            <h4>다양한 영화</h4>
+            <h5>최신 블록버스터부터 독립 영화까지 다양한 장르의 영화를 만나보세요.</h5>
+          </div>
+          <div className={style.feat_box}>
+            <div className={`${style.icon} ${style.iconGreen}`}>
+              <FaRegStar />
+            </div>
+            <h4>리뷰 공유</h4>
+            <h5>다른 사용자들과 영화 리뷰를 공유하고 소통할 수 있습니다.</h5>
+          </div>
+          <div className={style.feat_box}>
+            <div className={`${style.icon} ${style.iconPurple}`}>
+              <LuThumbsUp />
+            </div>
+            <h4>맞춤 추천</h4>
+            <h5>취향에 맞는 영화를 추천받고 새로운 작품을 발견해보세요.</h5>
+          </div>
+        </div>
       </section>
     </div>
   );

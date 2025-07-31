@@ -1,9 +1,85 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding: 40px 20px;
+  gap: 50px;
 }
 
 .container h3 {
+  font-size: 18px;
   margin-bottom: 0px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.text h3 {
+  font-weight: bold;
+}
+
+.text h5 {
+  font-size: 11px;
+  color: #777;
+}
+
+.feat_wrap {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feat_box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 1;
+  max-width: 300px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 11px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feat_box:hover {
+  transform: translateY(-4px);
+}
+
+.feat_box .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBlue {
+  background-color: #e0edff;
+  color: #2563eb;
+}
+
+.iconGreen {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.iconPurple {
+  background-color: #f3e8ff;
+  color: #9333ea;
+}
+
+.feat_box h5 {
+  color: #777;
+  font-weight: 100;
 }
