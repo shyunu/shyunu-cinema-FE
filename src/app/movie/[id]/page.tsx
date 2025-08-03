@@ -30,25 +30,40 @@ async function MovieDetail({ movieId }: { movieId: string }) {
   } = movie;
 
   return (
-    <section>
-      <div
-        className={style.cover_img_container}
-        style={{ backgroundImage: `url('${posterImgUrl}')` }}
-      >
-        <Image
-          src={posterImgUrl}
-          width={240}
-          height={300}
-          alt={`영화 ${title}의 표지 이미지`}
-        />
+    <section className={style.detail_container}>
+      <div>
+        홈 {">"} 영화 상세 {">"} {title}
       </div>
-      <div className={style.info_container}>
-        <div className={style.title}>{title}</div>
-        <div className={style.subTitle}>{subTitle}</div>
-        <div className={style.author}>
-          {releaseDate} 개봉 | {runtime}분 | {genres}
+      <div>
+        <div
+          className={style.cover_img_container}
+          style={{ backgroundImage: `url('${posterImgUrl}')` }}
+        >
+          <Image
+            src={posterImgUrl}
+            width={220}
+            height={300}
+            alt={`영화 ${title}의 표지 이미지`}
+          />
         </div>
-        <div className={style.description}>{description}</div>
+        <div className={style.info_container}>
+          <div className={style.title}>{title}</div>
+          <div className={style.date_genres}>
+            {releaseDate} 개봉 • {genres}
+          </div>
+          <div className={style.subTitle}>{subTitle}</div>
+          <div className={style.company_runtime}>
+            <div>
+              <div>제작사</div>
+              <div>{company}</div>
+            </div>
+            <div>
+              <div>러닝타임</div>
+              <div>{runtime}분</div>
+            </div>
+          </div>
+          <div className={style.description}>{description}</div>
+        </div>
       </div>
     </section>
   );

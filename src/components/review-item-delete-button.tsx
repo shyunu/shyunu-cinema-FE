@@ -2,6 +2,7 @@
 
 import { deleteReviewAction } from "@/actions/delete-review.action";
 import { useActionState, useEffect, useRef } from "react";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 export default function ReviewItemDeleteButton({
   reviewId,
@@ -26,7 +27,7 @@ export default function ReviewItemDeleteButton({
       {isPending ? (
         <div>...</div>
       ) : (
-        <div onClick={() => formRef.current?.requestSubmit()}>삭제하기</div>
+        <FaRegTrashAlt onClick={() => formRef.current?.requestSubmit()} />
       )}
     </form>
   );
