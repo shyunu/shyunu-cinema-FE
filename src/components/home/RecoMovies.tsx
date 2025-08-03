@@ -1,5 +1,5 @@
 import { MovieData } from "@/types";
-import { delay } from "@/util/delay";
+import { delay } from "@/utils/delay";
 import MovieItem from "../movie-item";
 
 export default async function RecoMovies() {

@@ -1,7 +1,7 @@
 import MovieItem from "@/components/movie-item";
 import MovieListSkeleton from "@/components/skeleton/movie-list-skeleton";
 import { MovieData } from "@/types";
-import { delay } from "@/util/delay";
+import { delay } from "@/utils/delay";
 import { Metadata } from "next";
 import { parseAppSegmentConfig } from "next/dist/build/segment-config/app/app-segment-config";
 import { Suspense } from "react";
