@@ -7,7 +7,7 @@
 
 ## 🚀 배포 링크
 
-👉 [shyunu-cinema-FE 바로가기](https://shyunu-cinema-fe.vercel.app/)
+👉 [shyunu-cinema 바로가기](https://shyunu-cinema-fe.vercel.app/)
 
 ## 📌 프로젝트 소개
 
