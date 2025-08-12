@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import style from "./serachbar.module.css";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { IoIosSearch } from "react-icons/io";
 
 export default function Searchbar() {
   const router = useRouter();
@@ -34,17 +33,15 @@ export default function Searchbar() {
 
   return (
     <div className={style.container}>
-      <TextField
+      <input
         id="standard-basic"
-        variant="standard"
+        placeholder="영화 제목, 감독, 장르로 검색해보세요 ..."
         value={search}
         onChange={onChangeSearch}
         onKeyDown={onKeyDown}
         className={style.textField}
       />
-      <Button variant="contained" onClick={onSubmit}>
-        검 색
-      </Button>
+      <IoIosSearch className={style.searchBtn} onClick={onSubmit} />
     </div>
   );
 }

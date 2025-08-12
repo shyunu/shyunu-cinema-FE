@@ -7,6 +7,7 @@ import RecoMovies from "@/components/home/RecoMovies";
 import { RiMovieLine } from "react-icons/ri";
 import { FaRegStar } from "react-icons/fa6";
 import { LuThumbsUp } from "react-icons/lu";
+import Button from "@mui/material/Button";
 
 export const dynamic = "force-dynamic";
 
@@ -24,21 +25,19 @@ export default function Home() {
   return (
     <div className={style.container}>
       <section>
-        <h3>추천 영화</h3>
-        <Suspense fallback={<MovieListSkeleton count={3} />}>
-          <RecoMovies />
-        </Suspense>
-      </section>
-      <section>
-        <h3>모든 영화</h3>
-        <Suspense fallback={<MovieListSkeleton count={10} />}>
-          <AllMovies />
-        </Suspense>
-      </section>
-      <section>
         <div className={style.text}>
-          <h3>shyunu&apos;s cinema 특징</h3>
-          <h5>영화 애호가들을 위한 완벽한 플랫폼</h5>
+          <div>
+            <h3>영화를 발견하고</h3>
+            <h3 style={{ color: "#2663EB" }}>리뷰를 공유하세요</h3>
+          </div>
+          <h5>
+            다양한 장르의 영화를 탐색하고, 다른 사용자들과 솔직한 리뷰를 나누며 새로운
+            영화를 발견해보세요.
+          </h5>
+        </div>
+        <div className={style.button_wrap}>
+          <Button>전체 영화 보기</Button>
+          <Button>추천 영화 보기</Button>
         </div>
         <div className={style.feat_wrap}>
           <div className={style.feat_box}>
@@ -63,6 +62,18 @@ export default function Home() {
             <h5>취향에 맞는 영화를 추천받고 새로운 작품을 발견해보세요.</h5>
           </div>
         </div>
+      </section>
+      <section>
+        <h3>추천 영화</h3>
+        <Suspense fallback={<MovieListSkeleton count={3} />}>
+          <RecoMovies />
+        </Suspense>
+      </section>
+      <section>
+        <h3>모든 영화</h3>
+        <Suspense fallback={<MovieListSkeleton count={10} />}>
+          <AllMovies />
+        </Suspense>
       </section>
     </div>
   );
