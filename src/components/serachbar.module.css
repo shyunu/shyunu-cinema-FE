@@ -3,25 +3,27 @@
   justify-content: space-around;
   gap: 15px;
   margin-bottom: 20px;
+  height: 40px;
+  padding: 0 50px;
 }
 
-.textField {
+.container input {
   flex: 1;
-}
-
-.textField input {
   padding: 15px;
   border-radius: 5px;
   border: none;
   outline: none;
   box-shadow: 0 2px 4px rgb(220, 220, 220);
+  color: #777;
 }
 
-.container > button {
-  width: 80px;
-  border-radius: 5px;
-  border: none;
-  background-color: #a4161a;
-  color: white;
+.container input::placeholder {
+  color: #e3e3e3;
+}
+
+.container > .searchBtn {
+  color: #000;
   cursor: pointer;
+  width: 30px;
+  height: 45px;
 }
